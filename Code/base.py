@@ -1,4 +1,1 @@
-import os
-
-if __name__ == '__main__':
-    print("Hello World")
+# Isinya fungsi2 sama variabel
