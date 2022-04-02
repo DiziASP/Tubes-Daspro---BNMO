@@ -1,11 +1,11 @@
 <!-- ABOUT THE PROJECT -->
-# Tubes Daspro
+# Tugas Besar Dasar Pemrograman
 
 
-Repositori ini berisi Source Code Kelompok 5 K-07 Tugas Besar Dasar Pemrograman IF1201 ITB. 
+Repositori ini berisi Source Code Kelompok 5 K-07 Tugas Besar Dasar Pemrograman IF1201 ITB
 
 Anggota Kelompok:
-* Reyhan Tanjung Ghifary
+* Reyhan Ghifari Tanjung
 * Intan Maharani
 * Raden Dizi Assyafadi Putra
 * Mahardika Wisnu Aji
