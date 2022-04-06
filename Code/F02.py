@@ -1,1 +1,3 @@
 # Register
+def register():
+    pass
