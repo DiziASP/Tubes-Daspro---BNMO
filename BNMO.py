@@ -1,9 +1,7 @@
-import os
-import argparse
-import sys
-import math
-import time
-import datetime
+import base
 
-# Homemade Module
-import general as general
+if __name__ == "__main__":
+    """
+        Running the Main Program
+    """
+    print(base.length("Anjay"))
