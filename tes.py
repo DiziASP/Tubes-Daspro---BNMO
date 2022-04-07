@@ -30,17 +30,22 @@
 
 # print(csv_to_array)
 
-list_data = []
-enter = ""
-with open("tes.csv", "r") as new_file:
-    for line in new_file:
-        for element in line:
-            if element == ";":
-                list_data += [enter]
-                enter = ""
-            elif element == "\n":
-                list_data += [enter]
-                break
-            else:
-                enter += element
-    print(list_data)
+# list_data = []
+# enter = ""
+# with open("tes.csv", "r") as new_file:
+#     for line in new_file:
+#         for element in line:
+#             if element == ";":
+#                 list_data += [enter]
+#                 enter = ""
+#             elif element == "\n":
+#                 list_data += [enter]
+#                 break
+#             else:
+#                 enter += element
+#     print(list_data)
+
+import os
+
+root = next(os.walk("database"))[1]
+print(root)
