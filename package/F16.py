@@ -14,3 +14,5 @@ def save():
     write_csv(folder, game_, "game")
     write_csv(folder, kepemilikan_, "kepemilikan")
     write_csv(folder, riwayat_, "riwayat")
+
+    input("Data berhasil tersimpan...")

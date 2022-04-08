@@ -101,8 +101,8 @@ def create_folder(folder):
 def write_csv(folder, data, string):
     with open(f'./{folder}/{string}.csv', 'w') as f:
         tmp = []
-        for i in range(length(user)):
-            addObj(tmp, (';'.join(user[i])))
+        for i in range(length(data)):
+            addObj(tmp, (';'.join(data[i])))
             addObj(tmp, '\n')
         res = ''.join(tmp)
         f.write(res)
