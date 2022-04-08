@@ -43,5 +43,3 @@ def register():
 
     new_user = [str(id), username, name, password, "user", '0']
     addObj(user, new_user)
-
-    print("Registrasi sudah berhasil. Selamat bermain ^_^")

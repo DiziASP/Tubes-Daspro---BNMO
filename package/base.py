@@ -62,7 +62,6 @@ def conSpec(string: str) -> bool:
 
 
 # CSV Manager
-"""Badok dari gugel, tiati masih rentan plagi"""
 
 
 def argParser():
@@ -74,35 +73,33 @@ def argParser():
     return folder
 
 
-def csv_to_mat(folder: str, filename: str) -> list:
-    if filename == 'user' or filename == 'game':
-        col = 6
-    elif filename == 'kepemilikan':
-        col = 2
-    elif filename == 'riwayat':
-        col = 5
-
-    with open(f'./{folder}/{filename}.csv', 'r') as f:
+def csv_reader(folder: str, filename: str) -> list:
+    """
+    Function to read a csv file from a specified folder and file 
+    and outputs a matrix of data with index [line][object]
+    """
+    with open(f"./{folder}/{filename}.csv", "r") as f:
         next(f)
-        res = []
-        delimiter = ';'
-        for row in f:
-            row = row.rstrip()
-            tmp = ''
-            for ch in row:
-                if(ch == delimiter):
-                    res += [tmp]
-                    tmp = ''
+        result = []
+        for each in f:
+            row = []
+            tmp = ""
+            delimiter = ";"
+            for ch in each:
+                if ch == delimiter or ch == "\n":
+                    row = addObj(row, tmp)
+                    tmp = ""
                 else:
                     tmp += ch
-            res += [tmp]
-        # Matrix
-        matrix = [["" for j in range(col)] for i in range(length(res)//col)]
-        num = 0
-        for i in range(length(res)//col):
-            for j in range(col):
-                matrix[i][j] = res[num]
-                num += 1
-            if num == length(res):
-                break
-        return matrix
+            addObj(row, tmp)
+            result = addObj(result, row)
+    return result
+
+# Program related functions
+
+
+def getRole(user_role: str) -> str:
+    if(user_role == 'admin'):
+        return 'admin'
+    else:
+        return 'user'

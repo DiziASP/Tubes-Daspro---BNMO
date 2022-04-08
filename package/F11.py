@@ -8,7 +8,8 @@ def search_game_at_store():
     category = input('Masukan Kategori Game: ')
     price = input('Masukan Harga Game: ')
     year = input('Masukan Tahun rilis: ')
-    arr_search = []
+
+    search_res = []
     arr_param = [[], [], [], [], []]
 
     if id == '' and name == '' and price == '' and category == '' and year == '':
@@ -47,12 +48,12 @@ def search_game_at_store():
 
     for i in range(length(game)):
         if game[i][0] in arr_param[0] and game[i][1] in arr_param[1] and game[i][4] in arr_param[2] and game[i][2] in arr_param[3] and game[i][3] in arr_param[4]:
-            arr_search += [game[i]]
+            search_res += [game[i]]
 
-    if length(arr_search) != 0:
+    if length(search_res) != 0:
         print('Daftar game pada toko yang memenuhi kriteria:')
-        for i in range(length(arr_search)):
-            print(arr_search[i])
+        for i in range(length(search_res)):
+            print(search_res[i])
 
     else:
         print('Daftar game pada toko yang memenuhi kriteria:')
