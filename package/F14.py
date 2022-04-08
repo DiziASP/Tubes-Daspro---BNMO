@@ -1,6 +1,6 @@
 # Help
 def Help():
-    print('-----------Need Help?------------')
+    print('====================Need Help?====================')
     if 'admin':
         print('1. Login - Untuk login ke akun')
         print('2. Register - Untuk mendaftarkan akun')

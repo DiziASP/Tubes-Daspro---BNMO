@@ -1,3 +1,0 @@
-# Login
-def login():
-    pass
