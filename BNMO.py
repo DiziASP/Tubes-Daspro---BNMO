@@ -46,11 +46,14 @@ if __name__ == "__main__":
                 input("Anda sudah login!...")
             else:
                 isLogged, user = login()
-        elif (user_input == "11" and isLogged):
+        elif (user_input == "10" and isLogged):
             search_game_at_store()
             input("Press any key to continue...")
         elif(user_input == "13"):
             Help()
+            input("Press any key to continue...")
+        elif(user_input == "14"):
+            save()
             input("Press any key to continue...")
         elif(not(isLogged)):
             input(

@@ -74,10 +74,7 @@ def argParser():
 
 
 def csv_reader(folder: str, filename: str) -> list:
-    """
-    Function to read a csv file from a specified folder and file 
-    and outputs a matrix of data with index [line][object]
-    """
+
     with open(f"./{folder}/{filename}.csv", "r") as f:
         next(f)
         result = []
@@ -91,7 +88,6 @@ def csv_reader(folder: str, filename: str) -> list:
                     tmp = ""
                 else:
                     tmp += ch
-            addObj(row, tmp)
             result = addObj(result, row)
     return result
 
