@@ -1,7 +1,7 @@
 # Help
-def Help():
+def Help(role):
     print('====================Need Help?====================')
-    if 'admin':
+    if role == 'admin':
         print('1. Login - Untuk login ke akun')
         print('2. Register - Untuk mendaftarkan akun')
         print('3. Tambah Game - Untuk menambah game yang dijual oleh toko')

@@ -1,7 +1,1 @@
-﻿id;username;nama;password;role;saldo
-1;dizi23_;Dizi;admin01;admin;99999999
-2;intan_222;Intan;admin02;admin;99999999
-3;tanjungwibu02_;Tanjung;admin03;admin;99999999
-4;wisnu-mahardika9;Wisnu;admin04;admin;99999999
-5;daspro-susah-banget-69;Daspro;admin05;user;1000
-6;yaallahtubesplisA_33;Tubes;admin06;user;1
+game_id;nama;harga;user_id;tahun_beli

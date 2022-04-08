@@ -5,13 +5,13 @@ from .base import *
 def load():
     while True:
         sys.stdout.write('\rloading |')
-        time.sleep(0.1)
+        time.sleep(0.3)
         sys.stdout.write('\rloading /')
-        time.sleep(0.1)
+        time.sleep(0.3)
         sys.stdout.write('\rloading -')
-        time.sleep(0.1)
+        time.sleep(0.3)
         sys.stdout.write('\rloading \\')
-        time.sleep(0.1)
+        time.sleep(0.3)
 
         folder = argParser()
         user = csv_reader(folder, "user")
@@ -19,6 +19,7 @@ def load():
         kepemilikan = csv_reader(folder, "kepemilikan")
         riwayat = csv_reader(folder, "riwayat")
         break
-    print('\nLoading berhasil...     ')
+    print('\rLoading berhasil...     ')
+    time.sleep(0.3)
     input('\nPress any key to continue...     \n')
     return user, game, kepemilikan, riwayat
