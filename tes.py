@@ -1,5 +1,7 @@
-from package import*
+from package import *
 
-if __name__ == "__main__":
-    print(user)
-    print(game)
+tmp = []
+for i in range(length(user)):
+    addObj(tmp, ';'.join(user[i]))
+    addObj(tmp, '\n')
+print(''.join(tmp))

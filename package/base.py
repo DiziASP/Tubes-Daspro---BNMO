@@ -76,7 +76,6 @@ def argParser():
 def csv_reader(folder: str, filename: str) -> list:
 
     with open(f"./{folder}/{filename}.csv", "r") as f:
-        next(f)
         result = []
         for each in f:
             row = []
@@ -91,6 +90,23 @@ def csv_reader(folder: str, filename: str) -> list:
             result = addObj(result, row)
     return result
 
+
+def create_folder(folder):
+    path = "./"
+    os.chdir(path)
+    if not os.path.exists(folder):
+        os.mkdir(folder)
+
+
+def write_csv(folder, data, string):
+    with open(f'./{folder}/{string}.csv', 'w') as f:
+        tmp = []
+        for i in range(length(user)):
+            addObj(tmp, (';'.join(user[i])))
+            addObj(tmp, '\n')
+        res = ''.join(tmp)
+        f.write(res)
+        f.close()
 # Program related functions
 
 
