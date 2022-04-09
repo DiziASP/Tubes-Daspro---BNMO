@@ -257,17 +257,15 @@ def sortMatrix(matrix: list, param: int, order: chr) -> list:
     if order == '+':
         for i in range(0, length(matrix)):
             for j in range(i+1, length(matrix)):
-                if i != 0:
-                    if(int(matrix[i][param]) > int(matrix[j][param])):
-                        matrix[i][param], matrix[j][param] = matrix[j][param], matrix[i][param]
+                if(int(matrix[i][param]) > int(matrix[j][param])):
+                    matrix[i], matrix[j] = matrix[j], matrix[i]
         return matrix
 
     if order == '-':
         for i in range(0, length(matrix)):
             for j in range(i+1, length(matrix)):
-                if i != 0:
-                    if(int(matrix[i][param]) < int(matrix[j][param])):
-                        matrix[i][param], matrix[j][param] = matrix[j][param], matrix[i][param]
+                if(int(matrix[i][param]) < int(matrix[j][param])):
+                    matrix[i], matrix[j] = matrix[j], matrix[i]
         return matrix
 
 

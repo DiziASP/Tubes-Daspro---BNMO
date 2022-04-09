@@ -10,28 +10,28 @@ def list_game_toko(game):
         """)
     if length(sorter) == 0:
         idx = 0
-        res = sortMatrix(game, idx, '+')
-        res = removeFirstElmt(res)
+        res = removeFirstElmt(game)
+        res = sortMatrix(res, idx, '+')
         printTable(res, 1)
     elif (sorter == 'tahun+'):
-        idx = 4
-        res = sortMatrix(game, idx, '+')
-        res = removeFirstElmt(res)
+        idx = 3
+        res = removeFirstElmt(game)
+        res = sortMatrix(res, idx, '+')
         printTable(res, 1)
     elif (sorter == 'tahun-'):
-        idx = 4
-        res = sortMatrix(game, idx, '-')
-        res = removeFirstElmt(res)
+        idx = 3
+        res = removeFirstElmt(game)
+        res = sortMatrix(res, idx, '-')
         printTable(res, 1)
     elif (sorter == 'harga+'):
-        idx = 5
-        res = sortMatrix(game, idx, '+')
-        res = removeFirstElmt(res)
+        idx = 4
+        res = removeFirstElmt(game)
+        res = sortMatrix(res, idx, '+')
         printTable(res, 1)
     elif (sorter == 'harga-'):
-        idx = 5
-        res = sortMatrix(game, idx, '-')
-        res = removeFirstElmt(res)
+        idx = 4
+        res = removeFirstElmt(game)
+        res = sortMatrix(res, idx, '-')
         printTable(res, 1)
     else:
         input("Skema sorting tidak valid")
