@@ -1,17 +1,6 @@
 from .base import*
 
 
-def isOnLibrary(user, game, kepemilikan):
-    for item in kepemilikan:
-        return (item[0] == game[0] and item[1] == user[0])
-
-
-def write_riwayat(user_, game_, riwayat):
-    year = datetime.datetime.today().year
-    res = [game_[0], game_[1], game_[4], user_[0], str(year)]
-    addObj(riwayat, res)
-
-
 def buy_game(user_id, user, game, kepemilikan, riwayat):
     game_id = input("Masukkan ID Game: ")
     user_, user_idx = getUserById(user, user_id)

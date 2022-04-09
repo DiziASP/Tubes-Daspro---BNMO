@@ -65,6 +65,22 @@ def conSpec(string: str) -> bool:
     return res
 
 
+def absolute(num):
+    if(num < 0):
+        return -(num)
+    else:
+        return num
+
+
+def removeFirstElmt(arr):
+    res = []
+    for i in range(length(arr)):
+        if i == 0:
+            continue
+        res += [arr[i]]
+    return res
+
+
 """
     Read and Write CSV function 
 """
@@ -224,3 +240,104 @@ def getValue(user, user_id):
     for i in range(len(user)):
         if user[i][0] == user_id:
             return user[i][5]
+
+
+def isOnLibrary(user, game, kepemilikan):
+    for item in kepemilikan:
+        return (item[0] == game[0] and item[1] == user[0])
+
+
+def write_riwayat(user_, game_, riwayat):
+    year = datetime.datetime.today().year
+    res = [game_[0], game_[1], game_[4], user_[0], str(year)]
+    addObj(riwayat, res)
+
+
+def sortMatrix(matrix: list, param: int, order: chr) -> list:
+    if order == '+':
+        for i in range(0, length(matrix)):
+            for j in range(i+1, length(matrix)):
+                if i != 0:
+                    if(int(matrix[i][param]) > int(matrix[j][param])):
+                        matrix[i][param], matrix[j][param] = matrix[j][param], matrix[i][param]
+        return matrix
+
+    if order == '-':
+        for i in range(0, length(matrix)):
+            for j in range(i+1, length(matrix)):
+                if i != 0:
+                    if(int(matrix[i][param]) < int(matrix[j][param])):
+                        matrix[i][param], matrix[j][param] = matrix[j][param], matrix[i][param]
+        return matrix
+
+
+def getLongestStrLen(matrix: list, index: int) -> int:
+    string = ''
+    for i in range(length(matrix)):
+        if length(matrix[i][index]) > length(string):
+            string = matrix[i][index]
+    return length(string)
+
+
+def printTable(matrix: list, list_type: int):
+    id_len = getLongestStrLen(matrix, 0)
+    name_len = getLongestStrLen(matrix, 1)
+    price_len = getLongestStrLen(matrix, 4)
+    cat_len = getLongestStrLen(matrix, 2)
+    year_len = getLongestStrLen(matrix, 3)
+    stock_len = getLongestStrLen(matrix, 5)
+
+    if list_type == 1:
+        print("ID", " "*abs(id_len-length("ID")), "||",
+              "Nama Game", " "*abs(name_len-length("Nama Game")), "||",
+              "Harga", " "*abs(price_len - length("Harga")), "||",
+              "Kategori", " "*abs(cat_len-length("Kategori")), "||",
+              "Tahun Rilis", " " *
+              abs(year_len-length("Tahun Rilis")), "||",
+              "Stok", " "*abs(stock_len-length("Stok")))
+        print("="*(id_len+name_len+price_len+cat_len+year_len+stock_len+25))
+        for i in range(0, length(matrix)):
+            print(matrix[i][0], " "*abs(id_len-length(matrix[i][0])), "||",
+                  matrix[i][1], " " *
+                  abs(name_len-length(matrix[i][1])), "||",
+                  matrix[i][4], " " *
+                  abs(price_len - length(matrix[i][4])), "||",
+                  matrix[i][2], " " *
+                  abs(cat_len-length(matrix[i][2])), "||",
+                  matrix[i][3], " " *
+                  abs(year_len-length(matrix[i][3])), "||",
+                  matrix[i][5], " "*abs(stock_len-length(matrix[i][5])))
+
+    if list_type == 2:
+        print("ID", " "*abs(id_len-length("ID")), "||",
+              "Nama Game", " "*abs(name_len-length("Nama Game")), "||",
+              "Kategori", " "*abs(cat_len-length("Kategori")), "||",
+              "Tahun Rilis", " " *
+              abs(year_len-length("Tahun Rilis")), "||",
+              "Harga", " "*abs(price_len - length("Harga")), "||",)
+        print("="*(name_len+price_len+cat_len+year_len+stock_len+20))
+        for i in range(1, length(matrix)):
+            print(matrix[i][0], " "*abs(id_len-length(matrix[i][0])), "||",
+                  matrix[i][1], " " *
+                  abs(name_len-length(matrix[i][1])), "||",
+                  matrix[i][2], " " *
+                  abs(cat_len-length(matrix[i][2])), "||",
+                  matrix[i][3], " " *
+                  abs(year_len-length(matrix[i][3])), "||",
+                  matrix[i][4], " "*abs(price_len - length(matrix[i][4])))
+
+
+def ownedByUser(user_id, kepemilikan):
+    res = []
+    for each in kepemilikan:
+        if each[1] == user_id:
+            res += each[0]
+    return res
+
+
+def getOwnedGames(arr, param):
+    res = []
+    for i in range(length(arr)):
+        if arr[i][0] in param:
+            res += arr[i]
+    return res

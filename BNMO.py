@@ -54,9 +54,18 @@ if __name__ == "__main__":
                 buy_game(current_id, user, game, kepemilikan, riwayat)
             else:
                 input("Access Denied. Press any key to continue...")
+        elif(user_input == "8" and isLogged):
+            if(role == 'user'):
+                list_game(current_id, game, kepemilikan)
+            else:
+                input("Access Denied. Press any key to continue...")
+        elif(user_input == "9" and isLogged):
+            if(role == 'user'):
+                search_my_game(current_id, game, kepemilikan)
+            else:
+                input("Access Denied. Press any key to continue...")
         elif (user_input == "10" and isLogged):
             search_game_at_store(game)
-            input("Press any key to continue...")
         elif(user_input == "11" and isLogged):
             if(role == 'admin'):
                 topup(user)
@@ -64,7 +73,7 @@ if __name__ == "__main__":
                 input("Access Denied. Press any key to continue...")
         elif(user_input == "12" and isLogged):
             if(role == 'user'):
-                riwayat(riwayat)
+                history(current_id, riwayat)
             else:
                 input("Access Denied. Press any key to continue...")
         elif(user_input == "13"):  # Help
