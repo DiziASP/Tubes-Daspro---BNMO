@@ -13,7 +13,7 @@ def tambah_game(game):
             tahun_rilis == '' or
             harga == '' or
                 stok == ''):
-            print("Mohon masukkan semua informasi mengenai game :() ")
+            print("Mohon masukkan semua informasi mengenai game :(")
             continue
         else:
             break
@@ -21,3 +21,4 @@ def tambah_game(game):
         tahun_rilis), str(harga), str(stok)]
     addObj(game, game_data)
     input("Game berhasil ditambahkan!")
+    return

@@ -11,3 +11,4 @@ def register(user):
     new_user = [str(id), username, name, password, "user", '0']
     addObj(user, new_user)
     input("Registrasi sudah berhasil ^_^")
+    return

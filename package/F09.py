@@ -8,5 +8,5 @@ def list_game(user_id, game, kepemilikan):
     if res == []:
         input("Maaf kamu belum membeli game ini. Ketik perintah 7 di main menu untuk membeli game")
     else:
-        printTable(res, 2)
+        printGame(res, 2)
     input("Press any key to continue...")

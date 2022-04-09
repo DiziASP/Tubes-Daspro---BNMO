@@ -52,8 +52,8 @@ def search_game_at_store(game):
                 game[i][4] in parameter[4]):
             addObj(res, game[i])
 
-    if (length(res) != 0):
-        printTable(res, 1)
+    if (length(res) > 0):
+        printGame(res, 1)
     else:
         print("Tidak ada game yang memenuhi kriteria")
     input("Press any key to continue...")

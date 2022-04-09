@@ -34,7 +34,7 @@ def search_my_game(user_id, game, kepemilikan):
             addObj(res, game[i])
 
     if (length(res) != 0):
-        printTable(res, 1)
+        printGame(res, 1)
     else:
         print("Tidak ada game yang memenuhi kriteria")
     input("Press any key to continue...")

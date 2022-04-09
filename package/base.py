@@ -118,6 +118,7 @@ def create_folder(folder):
     os.chdir(path)
     if not os.path.exists(folder):
         os.mkdir(folder)
+    return
 
 
 def write_csv(folder, data, string):
@@ -129,6 +130,7 @@ def write_csv(folder, data, string):
         res = ''.join(tmp)
         f.write(res)
         f.close()
+    return
 
 
 """
@@ -158,6 +160,7 @@ def printMenu():
     print('16. Magic Conch Shell')
     print('17. Tic Tac Toe')
     print('===========================================')
+    return
 
 
 def getRole(user: list, user_id: str) -> str:
@@ -205,27 +208,13 @@ def validateUser(user):
                     return username_
 
 
-def ValidateUserTopup(user):
-    username_ = input("Masukkan Username: ").rstrip()
-    if not((conUpper(username_) or conLower(username_))
-           and conSpec(username_)
-           and conDigit(username_)):
-        print("Username tidak sesuai dengan ketentuan")
-    else:
-        for i in range(0, length(user)):
-            if(user[i][1] == username_):
-                print("Username ini sudah diambil. Gunakan username lain!")
-                break
-            else:
-                return username_
-
-
 def getGamebyId(game: list, game_id: str) -> list:
     count = 0
     for item in game:
         if item[0] == game_id:
             return item, count
         count += 1
+    return
 
 
 def getUserById(user: list, user_id: str) -> list:
@@ -234,6 +223,7 @@ def getUserById(user: list, user_id: str) -> list:
         if item[0] == user_id:
             return item, count
         count += 1
+    return
 
 
 def getValue(user, user_id):
@@ -277,13 +267,13 @@ def getLongestStrLen(matrix: list, index: int) -> int:
     return length(string)
 
 
-def printTable(matrix: list, list_type: int):
-    id_len = getLongestStrLen(matrix, 0)
-    name_len = getLongestStrLen(matrix, 1)
-    price_len = getLongestStrLen(matrix, 4)
-    cat_len = getLongestStrLen(matrix, 2)
-    year_len = getLongestStrLen(matrix, 3)
-    stock_len = getLongestStrLen(matrix, 5)
+def printGame(game_mat: list, list_type: int):
+    id_len = getLongestStrLen(game_mat, 0)
+    name_len = getLongestStrLen(game_mat, 1)
+    price_len = getLongestStrLen(game_mat, 4)
+    cat_len = getLongestStrLen(game_mat, 2)
+    year_len = getLongestStrLen(game_mat, 3)
+    stock_len = getLongestStrLen(game_mat, 5)
 
     if list_type == 1:
         print("ID", " "*abs(id_len-length("ID")), "||",
@@ -293,17 +283,17 @@ def printTable(matrix: list, list_type: int):
               "Tahun Rilis", " " * abs(year_len-length("Tahun Rilis")), "||",
               "Stok", " "*abs(stock_len-length("Stok")))
         print("="*(id_len+name_len+price_len+cat_len+year_len+stock_len+25))
-        for i in range(0, length(matrix)):
-            print(matrix[i][0], " "*abs(id_len-length(matrix[i][0])), "||",
-                  matrix[i][1], " " *
-                  abs(name_len-length(matrix[i][1])), "||",
-                  matrix[i][4], " " *
-                  abs(price_len - length(matrix[i][4])), "||",
-                  matrix[i][2], " " *
-                  abs(cat_len-length(matrix[i][2])), "||",
-                  matrix[i][3], " " *
-                  abs(year_len-length(matrix[i][3])), "||",
-                  matrix[i][5], " "*abs(stock_len-length(matrix[i][5])))
+        for i in range(0, length(game_mat)):
+            print(game_mat[i][0], " "*abs(id_len-length(game_mat[i][0])), "||",
+                  game_mat[i][1], " " *
+                  abs(name_len-length(game_mat[i][1])), "||",
+                  game_mat[i][4], " " *
+                  abs(price_len - length(game_mat[i][4])), "||",
+                  game_mat[i][2], " " *
+                  abs(cat_len-length(game_mat[i][2])), "||",
+                  game_mat[i][3], " " *
+                  abs(year_len-length(game_mat[i][3])), "||",
+                  game_mat[i][5], " "*abs(stock_len-length(game_mat[i][5])))
 
     if list_type == 2:
         print("ID", " "*abs(id_len-length("ID")), "||",
@@ -313,15 +303,33 @@ def printTable(matrix: list, list_type: int):
               abs(year_len-length("Tahun Rilis")), "||",
               "Harga", " "*abs(price_len - length("Harga")), "||",)
         print("="*(name_len+price_len+cat_len+year_len+stock_len+20))
-        for i in range(1, length(matrix)):
-            print(matrix[i][0], " "*abs(id_len-length(matrix[i][0])), "||",
-                  matrix[i][1], " " *
-                  abs(name_len-length(matrix[i][1])), "||",
-                  matrix[i][2], " " *
-                  abs(cat_len-length(matrix[i][2])), "||",
-                  matrix[i][3], " " *
-                  abs(year_len-length(matrix[i][3])), "||",
-                  matrix[i][4], " "*abs(price_len - length(matrix[i][4])))
+        for i in range(1, length(game_mat)):
+            print(game_mat[i][0], " "*abs(id_len-length(game_mat[i][0])), "||",
+                  game_mat[i][1], " " *
+                  abs(name_len-length(game_mat[i][1])), "||",
+                  game_mat[i][2], " " *
+                  abs(cat_len-length(game_mat[i][2])), "||",
+                  game_mat[i][3], " " *
+                  abs(year_len-length(game_mat[i][3])), "||",
+                  game_mat[i][4], " "*abs(price_len - length(game_mat[i][4])))
+
+
+def print_riwayat(matrix: list):
+    user_len = getLongestStrLen(matrix, 0)
+    game_len = getLongestStrLen(matrix, 1)
+    price_len = getLongestStrLen(matrix, 4)
+    year_len = getLongestStrLen(matrix, 3)
+    print("ID", " "*abs(user_len-length("ID")), "||",
+          "Nama Game", " "*abs(game_len-length("Nama Game")), "||",
+          "Harga", " "*abs(price_len - length("Harga")), "||",
+          "Tahun Beli", " " *
+          abs(year_len-length("Tahun Beli")))
+    print("="*(user_len+game_len+price_len+year_len))
+    for i in range(0, length(matrix)):
+        print(matrix[i][0], " "*abs(user_len-length(matrix[i][0])), "||",
+              matrix[i][1], " " * abs(game_len-length(matrix[i][1])), "||",
+              matrix[i][2], " " * abs(price_len - length(matrix[i][4])), "||",
+              matrix[i][4], " " * abs(year_len-length(matrix[i][3])),)
 
 
 def ownedByUser(user_id, kepemilikan):
@@ -337,4 +345,12 @@ def getOwnedGames(arr, param):
     for i in range(length(arr)):
         if arr[i][0] in param:
             res += arr[i]
+    return res
+
+
+def getUserHistory(user_id, riwayat):
+    res = []
+    for each in riwayat:
+        if each[3] == user_id:
+            addObj(res, each)
     return res

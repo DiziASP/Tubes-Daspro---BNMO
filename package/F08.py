@@ -25,3 +25,4 @@ def buy_game(user_id, user, game, kepemilikan, riwayat):
 
         write_riwayat(user[user_idx], game[game_idx], riwayat)
         input(f"Game {game_[1]} telah berhasil dibeli!")
+    return
