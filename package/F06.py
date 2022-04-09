@@ -2,7 +2,11 @@ from .base import*
 
 
 def ubah_stok(game):
-    id = input("Masukkan ID game: ")
+    while True:
+        id = input("Masukkan ID game: ")
+        if(length(id) > 0):
+            break
+        print("Input ID tidak valid. Silahkan ulangi kembali")
     sum = int(input("Masukkan jumlah: "))
 
     stok, idx = getGamebyId(game, id)

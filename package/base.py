@@ -292,8 +292,7 @@ def printTable(matrix: list, list_type: int):
               "Nama Game", " "*abs(name_len-length("Nama Game")), "||",
               "Harga", " "*abs(price_len - length("Harga")), "||",
               "Kategori", " "*abs(cat_len-length("Kategori")), "||",
-              "Tahun Rilis", " " *
-              abs(year_len-length("Tahun Rilis")), "||",
+              "Tahun Rilis", " " * abs(year_len-length("Tahun Rilis")), "||",
               "Stok", " "*abs(stock_len-length("Stok")))
         print("="*(id_len+name_len+price_len+cat_len+year_len+stock_len+25))
         for i in range(0, length(matrix)):
