@@ -177,35 +177,43 @@ def getLastUserId(user_: list) -> int:
 
 def validatePassword(user):
     while True:
-        print(
-            """
-            Password harus : 
-            - lebih dari 7 kata
-            - mengandung huruf besar atau kecil
-            - mengandung digit angka
-            """)
-        password_ = input("Masukkan Password: ")
-        if not((conUpper(password_) or conLower(password_))
-               and length(password_) > 8
-                and conDigit(password_)):
-            print("Password tidak sesuai dengan ketentuan. Silahkan coba kembali!")
-        else:
-            return password_
+        try:
+            print(
+                """
+                Password harus : 
+                - lebih dari 7 kata
+                - mengandung huruf besar atau kecil
+                - mengandung digit angka
+                """)
+            password_ = input("Masukkan Password: ")
+            if not((conUpper(password_) or conLower(password_))
+                   and length(password_) > 8
+                    and conDigit(password_)):
+                print("Password tidak sesuai dengan ketentuan. Silahkan coba kembali!")
+            else:
+                return password_
+        except ValueError:
+            print("Input anda tidak valid. Silahkan ulangi input")
+            continue
 
 
 def validateUser(user):
     while True:
-        username_ = input("Masukkan Username: ").rstrip()
-        if not((conUpper(username_) or conLower(username_))
-               and conSpec(username_)
-               and conDigit(username_)):
-            print("Username tidak sesuai dengan ketentuan. Silahkan coba kembali!")
-        else:
-            for i in range(0, length(user)):
-                if(user[i][1] == username_):
-                    print("Username ini sudah diambil. Gunakan username lain!")
-                else:
-                    return username_
+        try:
+            username_ = input("Masukkan Username: ").rstrip()
+            if not((conUpper(username_) or conLower(username_))
+                   and conSpec(username_)
+                   and conDigit(username_)):
+                print("Username tidak sesuai dengan ketentuan. Silahkan coba kembali!")
+            else:
+                for i in range(0, length(user)):
+                    if(user[i][1] == username_):
+                        print("Username ini sudah diambil. Gunakan username lain!")
+                    else:
+                        return username_
+        except ValueError:
+            print("Input anda tidak valid. Silahkan ulangi input")
+            continue
 
 
 def getGamebyId(game: list, game_id: str) -> list:
