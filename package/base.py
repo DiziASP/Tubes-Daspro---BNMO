@@ -65,14 +65,14 @@ def conSpec(string: str) -> bool:
     return res
 
 
-def absolute(num):
+def absolute(num: int) -> int:
     if(num < 0):
         return -(num)
     else:
         return num
 
 
-def removeFirstElmt(arr):
+def removeFirstElmt(arr: list) -> list:
     res = []
     for i in range(length(arr)):
         if i == 0:
@@ -113,7 +113,7 @@ def csv_reader(folder: str, filename: str) -> list:
     return result
 
 
-def create_folder(folder):
+def create_folder(folder: str):
     path = "./"
     os.chdir(path)
     if not os.path.exists(folder):
@@ -121,7 +121,7 @@ def create_folder(folder):
     return
 
 
-def write_csv(folder, data, string):
+def write_csv(folder: str, data: list, string: str):
     with open(f'./{folder}/{string}.csv', 'w') as f:
         tmp = []
         for i in range(length(data)):
@@ -175,7 +175,7 @@ def getLastUserId(user_: list) -> int:
             return int(user_[i][0])
 
 
-def validatePassword(user):
+def validatePassword():
     while True:
         try:
             print(
@@ -234,18 +234,18 @@ def getUserById(user: list, user_id: str) -> list:
     return
 
 
-def getValue(user, user_id):
+def getValue(user: list, user_id: str) -> str:
     for i in range(len(user)):
         if user[i][0] == user_id:
             return user[i][5]
 
 
-def isOnLibrary(user, game, kepemilikan):
+def isOnLibrary(user: list, game: list, kepemilikan: list) -> bool:
     for item in kepemilikan:
         return (item[0] == game[0] and item[1] == user[0])
 
 
-def write_riwayat(user_, game_, riwayat):
+def write_riwayat(user_: list, game_: list, riwayat: list):
     year = datetime.datetime.today().year
     res = [game_[0], game_[1], game_[4], user_[0], str(year)]
     addObj(riwayat, res)
@@ -340,7 +340,7 @@ def print_riwayat(matrix: list):
               matrix[i][4], " " * abs(year_len-length(matrix[i][3])),)
 
 
-def ownedByUser(user_id, kepemilikan):
+def ownedByUser(user_id: str, kepemilikan: list) -> list:
     res = []
     for each in kepemilikan:
         if each[1] == user_id:
@@ -348,7 +348,7 @@ def ownedByUser(user_id, kepemilikan):
     return res
 
 
-def getOwnedGames(arr, param):
+def getOwnedGames(arr: list, param: list) -> list:
     res = []
     for i in range(length(arr)):
         if arr[i][0] in param:
@@ -356,7 +356,7 @@ def getOwnedGames(arr, param):
     return res
 
 
-def getUserHistory(user_id, riwayat):
+def getUserHistory(user_id: str, riwayat: list) -> list:
     res = []
     for each in riwayat:
         if each[3] == user_id:

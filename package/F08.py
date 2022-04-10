@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    Buy Games Procedure   
+"""
+
 
 def buy_game(user_id, user, game, kepemilikan, riwayat):
     game_id = input("Masukkan ID Game: ")

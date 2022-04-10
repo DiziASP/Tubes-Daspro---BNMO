@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    Add Game Procedure   
+"""
+
 
 def tambah_game(game):
     while True:  # Validate Input

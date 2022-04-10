@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    User Game's List Procedure   
+"""
+
 
 def list_game(user_id, game, kepemilikan):
     sorted = sortMatrix(game, 0, '+')

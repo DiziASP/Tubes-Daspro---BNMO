@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    History Procedure   
+"""
+
 
 def history(user_id, riwayat):
     if length(riwayat) == 0:

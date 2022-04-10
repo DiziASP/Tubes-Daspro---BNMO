@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    Search My Game Procedure   
+"""
+
 
 def search_my_game(user_id, game, kepemilikan):
     id = input('Masukan ID Game: ')

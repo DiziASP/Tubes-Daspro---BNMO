@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    Search Game at Store Procedure   
+"""
+
 
 def search_game_at_store(game):
     id = input('Masukan ID Game: ')

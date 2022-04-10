@@ -1,6 +1,10 @@
 from .base import*
 from .F16 import*
 
+"""
+    Exit Procedure   
+"""
+
 
 def exit_program(user, game, kepemilikan, riwayat):
     user_input = input("Apakah anda ingin melakukan penyimpanan file? ")

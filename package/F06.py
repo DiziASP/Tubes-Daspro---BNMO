@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    Change Stock Procedure   
+"""
+
 
 def ubah_stok(game):
     try:

@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    Game's List Procedure   
+"""
+
 
 def list_game_toko(game):
     sorter = input(

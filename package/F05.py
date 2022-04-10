@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    Change Game Procedure   
+"""
+
 
 def ubah_game(game):
     id = input("Masukkan ID game: ")

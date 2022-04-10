@@ -1,5 +1,9 @@
 from .base import*
 
+"""
+    Save Procedure   
+"""
+
 
 def save(user, game, kepemilikan, riwayat):
     while True:
