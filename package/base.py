@@ -12,7 +12,7 @@ import datetime
     General Functions for program
 """
 
-
+validate =  lambda x: not (';' in x)
 def length(arr: list) -> int:
     count = 0
 
