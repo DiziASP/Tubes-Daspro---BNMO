@@ -1,4 +1,5 @@
 from package import*
+from package.B02 import kerangajaib
 
 
 # def temp_load():
@@ -12,6 +13,4 @@ from package import*
 # user, game, kepemilikan, riwayat = temp_load()
 # search_my_game("6", game, kepemilikan)
 
-string = input("Anjay :")
-print(strip_str(string), end="")
-print("kontol")
+kerangajaib()

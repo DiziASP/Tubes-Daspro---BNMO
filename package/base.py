@@ -71,8 +71,12 @@ def absolute(num: int) -> int:
     else:
         return num
 
+# strip masih ada bug
+
 
 def strip_str(s: str) -> list:
+    if(length(s) == 0):
+        return ""
     res = ""
     begin = 0
     end = length(s)-1
@@ -93,6 +97,15 @@ def removeFirstElmt(arr: list) -> list:
             continue
         res += [arr[i]]
     return res
+
+
+def LCG():
+    m = 12  # Modulus {m > 0}
+    a = 9   # multiplier {0 <= a <= m }
+    x = int(time.time()) % m  # Xo {0 <= xo <= m}
+    # incrementor {0 <= c < m , c = 0 means Lehmer RNG Algorithm}
+    c = int(time.process_time_ns()) % m
+    return (a*x+c) % m
 
 
 """

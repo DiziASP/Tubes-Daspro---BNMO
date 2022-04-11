@@ -90,6 +90,9 @@ if __name__ == "__main__":
         elif(user_input == "15"):  # Exit Program
             exit_program(user, game, kepemilikan, riwayat)
             break
+        elif(user_input == "16"):  # Magic Conch Shell
+            kerangajaib()
+            input("Press any key to continue...")
         elif(not(isLogged)):  # Not Logged in State
             input(
                 "Ara ara~, Sepertinya kamu belum login. Mohon login terlebih dahulu...")
