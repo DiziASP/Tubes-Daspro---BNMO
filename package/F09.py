@@ -6,6 +6,7 @@ from .base import*
 
 
 def list_game(user_id, game, kepemilikan):
+    game = removeFirstElmt(game)
     sorted = sortMatrix(game, 0, '+')
     game_owned = ownedByUser(user_id, kepemilikan)
     res = getOwnedGames(sorted, game_owned)

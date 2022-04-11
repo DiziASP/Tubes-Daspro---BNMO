@@ -97,7 +97,7 @@ def argParser():
 
 def csv_reader(folder: str, filename: str) -> list:
 
-    with open(f"./{folder}/{filename}.csv", "r") as f:
+    with open(f"./{folder}/{filename}.csv", "r", encoding='utf-8-sig') as f:
         result = []
         for each in f:
             row = []
@@ -122,7 +122,7 @@ def create_folder(folder: str):
 
 
 def write_csv(folder: str, data: list, string: str):
-    with open(f'./{folder}/{string}.csv', 'w') as f:
+    with open(f'./{folder}/{string}.csv', 'w', encoding='utf-8-sig') as f:
         tmp = []
         for i in range(length(data)):
             addObj(tmp, (';'.join(data[i])))
@@ -269,75 +269,89 @@ def sortMatrix(matrix: list, param: int, order: chr) -> list:
 
 def getLongestStrLen(matrix: list, index: int) -> int:
     string = ''
-    for i in range(length(matrix)):
+    for i in range(0, length(matrix)):
         if length(matrix[i][index]) > length(string):
             string = matrix[i][index]
     return length(string)
 
 
+def whole_numerate(n):
+    return math.ceil((abs(n)+n)/2)
+
+
 def printGame(game_mat: list, list_type: int):
-    id_len = getLongestStrLen(game_mat, 0)
-    name_len = getLongestStrLen(game_mat, 1)
-    price_len = getLongestStrLen(game_mat, 4)
-    cat_len = getLongestStrLen(game_mat, 2)
-    year_len = getLongestStrLen(game_mat, 3)
-    stock_len = getLongestStrLen(game_mat, 5)
+    stock_len = (length("Stok"), getLongestStrLen(game_mat, 5))[
+        getLongestStrLen(game_mat, 5) > length("Stok")]
+    id_len = (length("ID"), getLongestStrLen(game_mat, 0))[
+        getLongestStrLen(game_mat, 0) > length("ID")]
+    name_len = (length("Nama Game"), getLongestStrLen(game_mat, 1))[
+        getLongestStrLen(game_mat, 1) > length("Nama Game")]
+    price_len = (length("Harga"), getLongestStrLen(game_mat, 4))[
+        getLongestStrLen(game_mat, 4) > length("Harga")]
+    cat_len = (length("Kategori"), getLongestStrLen(game_mat, 2))[
+        getLongestStrLen(game_mat, 2) > length("Kategori")]
+    year_len = (length("Tahun Rilis"), getLongestStrLen(game_mat, 3))[
+        getLongestStrLen(game_mat, 3) > length("Tahun Rilis")]
 
     if list_type == 1:
-        print("ID", " "*abs(id_len-length("ID")), "||",
-              "Nama Game", " "*abs(name_len-length("Nama Game")), "||",
-              "Harga", " "*abs(price_len - length("Harga")), "||",
-              "Kategori", " "*abs(cat_len-length("Kategori")), "||",
-              "Tahun Rilis", " " * abs(year_len-length("Tahun Rilis")), "||",
-              "Stok", " "*abs(stock_len-length("Stok")))
+        print("ID", " "*(id_len-length("ID")), "|",
+              "Nama Game", " "*(name_len-length("Nama Game")), "|",
+              "Harga", " "*(price_len-length("Harga")), "|",
+              "Kategori", " "*(cat_len-length("Kategori")), "|",
+              "Tahun Rilis", " " * (year_len-length("Tahun Rilis")), "|",
+              "Stok", " "*(stock_len-length("Stok")))
         print("="*(id_len+name_len+price_len+cat_len+year_len+stock_len+25))
         for i in range(0, length(game_mat)):
-            print(game_mat[i][0], " "*abs(id_len-length(game_mat[i][0])), "||",
+            print(game_mat[i][0], " "*whole_numerate(int(id_len)-length(game_mat[i][0])), "|",
                   game_mat[i][1], " " *
-                  abs(name_len-length(game_mat[i][1])), "||",
+                  whole_numerate(int(name_len)-length(game_mat[i][1])), "|",
                   game_mat[i][4], " " *
-                  abs(price_len - length(game_mat[i][4])), "||",
+                  whole_numerate(int(price_len)-length(game_mat[i][4])), "|",
                   game_mat[i][2], " " *
-                  abs(cat_len-length(game_mat[i][2])), "||",
+                  whole_numerate(int(cat_len)-length(game_mat[i][2])), "|",
                   game_mat[i][3], " " *
-                  abs(year_len-length(game_mat[i][3])), "||",
-                  game_mat[i][5], " "*abs(stock_len-length(game_mat[i][5])))
+                  whole_numerate(int(year_len)-length(game_mat[i][3])), "|",
+                  game_mat[i][5], " "*whole_numerate(int(id_len)-length(game_mat[i][5])))
 
     if list_type == 2:
-        print("ID", " "*abs(id_len-length("ID")), "||",
-              "Nama Game", " "*abs(name_len-length("Nama Game")), "||",
-              "Kategori", " "*abs(cat_len-length("Kategori")), "||",
-              "Tahun Rilis", " " *
-              abs(year_len-length("Tahun Rilis")), "||",
-              "Harga", " "*abs(price_len - length("Harga")), "||",)
-        print("="*(name_len+price_len+cat_len+year_len+stock_len+20))
-        for i in range(1, length(game_mat)):
-            print(game_mat[i][0], " "*abs(id_len-length(game_mat[i][0])), "||",
+        print("ID", " "*(id_len-length("ID")), "|",
+              "Nama Game", " "*(name_len-length("Nama Game")), "|",
+              "Harga", " "*(price_len-length("Harga")), "|",
+              "Kategori", " "*(cat_len-length("Kategori")), "|",
+              "Tahun Rilis", " " * (year_len-length("Tahun Rilis")))
+        print("="*(id_len+name_len+price_len+cat_len+year_len+25))
+        for i in range(0, length(game_mat)):
+            print(game_mat[i][0], " "*whole_numerate(int(id_len)-length(game_mat[i][0])), "|",
                   game_mat[i][1], " " *
-                  abs(name_len-length(game_mat[i][1])), "||",
+                  whole_numerate(int(name_len)-length(game_mat[i][1])), "|",
+                  game_mat[i][4], " " *
+                  whole_numerate(int(price_len)-length(game_mat[i][4])), "|",
                   game_mat[i][2], " " *
-                  abs(cat_len-length(game_mat[i][2])), "||",
-                  game_mat[i][3], " " *
-                  abs(year_len-length(game_mat[i][3])), "||",
-                  game_mat[i][4], " "*abs(price_len - length(game_mat[i][4])))
+                  whole_numerate(int(cat_len)-length(game_mat[i][2])), "|",
+                  game_mat[i][3], " " * whole_numerate(int(year_len)-length(game_mat[i][3])))
 
 
 def print_riwayat(matrix: list):
-    user_len = getLongestStrLen(matrix, 0)
-    game_len = getLongestStrLen(matrix, 1)
-    price_len = getLongestStrLen(matrix, 4)
-    year_len = getLongestStrLen(matrix, 3)
-    print("ID", " "*abs(user_len-length("ID")), "||",
-          "Nama Game", " "*abs(game_len-length("Nama Game")), "||",
-          "Harga", " "*abs(price_len - length("Harga")), "||",
-          "Tahun Beli", " " *
-          abs(year_len-length("Tahun Beli")))
-    print("="*(user_len+game_len+price_len+year_len))
+    id_len = (length("ID"), getLongestStrLen(matrix, 0))[
+        getLongestStrLen(matrix, 0) > length("ID")]
+    game_len = (length("Nama Game"), getLongestStrLen(matrix, 1))[
+        getLongestStrLen(matrix, 1) > length("ID")]
+    price_len = (length("Harga"), getLongestStrLen(matrix, 4))[
+        getLongestStrLen(matrix, 4) > length("Harga")]
+    year_len = (length("Tahun Pembelian"), getLongestStrLen(matrix, 3))[
+        getLongestStrLen(matrix, 3) > length("Tahun Pembelian")]
+    print("ID", " "*(id_len-length("ID")), "|",
+          "Nama Game", " "*(game_len-length("Nama Game")), "|",
+          "Harga", " "*(price_len - length("Harga")), "|",
+          "Tahun Beli", " " * (year_len-length("Tahun Beli")))
+    print("="*(id_len+game_len+price_len+year_len))
     for i in range(0, length(matrix)):
-        print(matrix[i][0], " "*abs(user_len-length(matrix[i][0])), "||",
-              matrix[i][1], " " * abs(game_len-length(matrix[i][1])), "||",
-              matrix[i][2], " " * abs(price_len - length(matrix[i][4])), "||",
-              matrix[i][4], " " * abs(year_len-length(matrix[i][3])),)
+        print(matrix[i][0], " "*whole_numerate(int(id_len)-length(matrix[i][0])), "|",
+              matrix[i][1], " " *
+              whole_numerate(int(game_len)-length(matrix[i][1])), "|",
+              matrix[i][2], " " *
+              whole_numerate(int(price_len)-length(matrix[i][2])), "|",
+              matrix[i][4], " " * whole_numerate(int(year_len)-length(matrix[i][4])),)
 
 
 def ownedByUser(user_id: str, kepemilikan: list) -> list:
@@ -352,7 +366,7 @@ def getOwnedGames(arr: list, param: list) -> list:
     res = []
     for i in range(length(arr)):
         if arr[i][0] in param:
-            res += arr[i]
+            res += [arr[i]]
     return res
 
 
