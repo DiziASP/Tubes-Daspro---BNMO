@@ -9,7 +9,6 @@ def login(user):
         try:
             username_ = strip_str(input("Masukkan Username: "))
             password_ = strip_str(input("Masukkan Password: "))
-            print(username_)
             for i in range(0, length(user)):
                 if user[i][1] == username_ and user[i][3] == password_:
                     input(
