@@ -6,11 +6,11 @@ from .base import*
 
 
 def ubah_game(game):
-    id = input("Masukkan ID game: ")
-    nama = input("Masukkan nama game: ")
-    kategori = input("Masukkan kategori: ")
-    tahun_rilis = input("Masukkan tahun rilis:")
-    harga = input("Masukkan harga: ")
+    id = strip_str(input("Masukkan ID game: "))
+    nama = strip_str(input("Masukkan nama game: "))
+    kategori = strip_str(input("Masukkan kategori: "))
+    tahun_rilis = strip_str(input("Masukkan tahun rilis:"))
+    harga = strip_str(input("Masukkan harga: "))
 
     while id == '':
         print("ID game tidak boleh kosong!")

@@ -7,11 +7,11 @@ from .base import*
 
 def tambah_game(game):
     while True:  # Validate Input
-        nama = input("Masukkan nama game: ")
-        kategori = input("Masukkan kategori: ")
-        tahun_rilis = input("Masukkan tahun rilis:")
-        harga = input("Masukkan harga: ")
-        stok = input("Masukkan stok awal: ")
+        nama = strip_str(input("Masukkan nama game: "))
+        kategori = strip_str(input("Masukkan kategori: "))
+        tahun_rilis = strip_str(input("Masukkan tahun rilis:"))
+        harga = strip_str(input("Masukkan harga: "))
+        stok = strip_str(input("Masukkan stok awal: "))
         if (nama == '' or
             kategori == '' or
             tahun_rilis == '' or

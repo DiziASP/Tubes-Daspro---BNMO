@@ -20,7 +20,8 @@ if __name__ == "__main__":
         printMenu()
 
         # Choose Menu
-        user_input = input("Silahkan pilih menu yang diinginkan: \n")
+        user_input = strip_str(
+            input("Silahkan pilih menu yang diinginkan: \n"))
         if (user_input == "1" and isLogged):  # Register
             if(role == 'admin'):
                 register(user)

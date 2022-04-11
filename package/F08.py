@@ -6,7 +6,7 @@ from .base import*
 
 
 def buy_game(user_id, user, game, kepemilikan, riwayat):
-    game_id = input("Masukkan ID Game: ")
+    game_id = strip_str(input("Masukkan ID Game: "))
     user_, user_idx = getUserById(user, user_id)
     game_, game_idx = getGamebyId(game, game_id)
 

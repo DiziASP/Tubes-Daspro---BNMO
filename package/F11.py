@@ -6,17 +6,23 @@ from .base import*
 
 
 def search_game_at_store(game):
-    id = input('Masukan ID Game: ')
-    name = input('Masukan Nama Game: ')
-    price = input('Masukan Harga Game: ')
-    category = input('Masukan Kategori Game: ')
-    year = input('Masukan Tahun rilis: ')
+    id = strip_str(input('Masukan ID Game: '))
+    name = strip_str(input('Masukan Nama Game: '))
+    price = strip_str(input('Masukan Harga Game: '))
+    category = strip_str(input('Masukan Kategori Game: '))
+    year = strip_str(input('Masukan Tahun rilis: '))
 
-    game = removeFirstElmt(game)
+    while id == '' and name == '' and price == '' and category == '' and year == '':
+        input("Parameter tidak boleh kosong. Silahkan isi minimal 1 parameter untuk menjalankan operasi ini")
+        id = strip_str(input('Masukan ID Game: '))
+        name = strip_str(input('Masukan Nama Game: '))
+        price = strip_str(input('Masukan Harga Game: '))
+        category = strip_str(input('Masukan Kategori Game: '))
+        year = strip_str(input('Masukan Tahun rilis: '))
+        game = removeFirstElmt(game)
+
     parameter = [[], [], [], [], []]
     res = []
-    if id == '' and name == '' and price == '' and category == '' and year == '':
-        input("Parameter tidak boleh kosong. Silahkan isi minimal 1 parameter untuk menjalankan operasi ini")
 
     if length(id) > 0:
         addObj(parameter[0], id)

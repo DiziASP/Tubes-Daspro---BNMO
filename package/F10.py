@@ -6,13 +6,13 @@ from .base import*
 
 
 def search_my_game(user_id, game, kepemilikan):
-    id = input('Masukan ID Game: ')
-    name = input('Masukan Nama Game: ')
+    id = strip_str(input('Masukan ID Game: '))
+    name = strip_str(input('Masukan Nama Game: '))
 
     while id == '' and name == '':
         input("Parameter tidak boleh kosong. Silahkan isi minimal 1 parameter untuk menjalankan operasi ini")
-        id = input('Masukan ID Game: ')
-        name = input('Masukan Nama Game: ')
+        id = strip_str(input('Masukan ID Game: '))
+        name = strip_str(input('Masukan Nama Game: '))
 
     game = removeFirstElmt(game)
     game_owned = ownedByUser(user_id, kepemilikan)

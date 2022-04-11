@@ -72,6 +72,20 @@ def absolute(num: int) -> int:
         return num
 
 
+def strip_str(s: str) -> list:
+    res = ""
+    begin = 0
+    end = length(s)-1
+    while s[begin] == " ":
+        begin += 1
+    while s[end] == " ":
+        end -= 1
+    end += 1
+    for i in range(begin, end):
+        res += s[i]
+    return res
+
+
 def removeFirstElmt(arr: list) -> list:
     res = []
     for i in range(length(arr)):
@@ -123,11 +137,14 @@ def create_folder(folder: str):
 
 def write_csv(folder: str, data: list, string: str):
     with open(f'./{folder}/{string}.csv', 'w', encoding='utf-8-sig') as f:
-        tmp = []
+        res = ''
         for i in range(length(data)):
-            addObj(tmp, (';'.join(data[i])))
-            addObj(tmp, '\n')
-        res = ''.join(tmp)
+            for j in range(length(data[i])):
+                if j == length(data[i]) - 1:
+                    res += str(data[i][j])
+                else:
+                    res += f"{data[i][j]};"
+            res += "\n"
         f.write(res)
         f.close()
     return
@@ -185,7 +202,7 @@ def validatePassword():
                 - mengandung huruf besar atau kecil
                 - mengandung digit angka
                 """)
-            password_ = input("Masukkan Password: ")
+            password_ = strip_str(input("Masukkan Password: "))
             if not((conUpper(password_) or conLower(password_))
                    and length(password_) > 8
                     and conDigit(password_)):
@@ -200,7 +217,7 @@ def validatePassword():
 def validateUser(user):
     while True:
         try:
-            username_ = input("Masukkan Username: ").rstrip()
+            username_ = strip_str(input("Masukkan Username: "))
             if not((conUpper(username_) or conLower(username_))
                    and conSpec(username_)
                    and conDigit(username_)):

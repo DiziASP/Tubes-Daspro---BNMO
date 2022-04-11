@@ -6,12 +6,12 @@ from .base import*
 
 
 def list_game_toko(game):
-    sorter = input(
+    sorter = strip_str(input(
         """
     tahun+ || tahun- 
     harga+ || harga-
     Masukkan Skema Pencarian:
-    """)
+    """))
     if length(sorter) == 0:
         idx = 0
         res = removeFirstElmt(game)

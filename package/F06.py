@@ -8,11 +8,11 @@ from .base import*
 def ubah_stok(game):
     try:
         while True:
-            id = input("Masukkan ID game: ")
+            id = strip_str(input("Masukkan ID game: "))
             if(length(id) > 0):
                 break
             print("Input ID tidak valid. Silahkan ulangi kembali")
-        sum = int(input("Masukkan jumlah: "))
+        sum = int(strip_str(input("Masukkan jumlah: ")))
 
         game_, idx = getGamebyId(game, id)
         if length(game_) == 0:

@@ -1,14 +1,14 @@
 from .base import*
 
 """
-    Save Procedure   
+    Savestrip_str( Procedure   
 """
 
 
 def save(user, game, kepemilikan, riwayat):
     while True:
         try:
-            folder = input("Masukkan nama folder penyimpanan: ")
+            folder = strip_str(input("Masukkan nama folder penyimpanan: "))
             create_folder(folder)
             write_csv(folder, user, "user")
             write_csv(folder, game, "game")
