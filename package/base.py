@@ -13,6 +13,7 @@ import datetime
 """
 
 validate =  lambda x: not (';' in x)
+
 def length(arr: list) -> int:
     count = 0
 
@@ -70,10 +71,7 @@ def absolute(num: int) -> int:
         return -(num)
     else:
         return num
-
-# strip masih ada bug
-
-
+    
 def strip_str(s: str) -> list:
     if(length(s) == 0):
         return ""
