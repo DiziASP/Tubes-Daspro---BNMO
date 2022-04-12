@@ -10,14 +10,15 @@ def register(user):
     username = validateUser(user)
     name = strip_str(input("Masukkan Nama: "))
     password = validatePassword()
-
-    while validate(id) == True or validate(username) == True or validate(name) == True or validate(password) == True:
-        print("Tidak boleh ada ; pada masukan. Silahkan ulangi kembali!")
+    while (length(str(id)) == 0
+           or length(username) == 0
+           or length(name) == 0
+           or length(password) == 0):
         id = getLastUserId(user) + 1
         username = validateUser(user)
         name = strip_str(input("Masukkan Nama: "))
         password = validatePassword()
-        
+
     new_user = [str(id), username, name, password, "user", '0']
     addObj(user, new_user)
     input("Registrasi sudah berhasil ^_^")

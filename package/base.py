@@ -12,7 +12,6 @@ import datetime
     General Functions for program
 """
 
-validate =  lambda x: not (';' in x)
 
 def length(arr: list) -> int:
     count = 0
@@ -71,7 +70,8 @@ def absolute(num: int) -> int:
         return -(num)
     else:
         return num
-    
+
+
 def strip_str(s: str) -> list:
     if(length(s) == 0):
         return ""
@@ -201,6 +201,8 @@ def getLastUserId(user_: list) -> int:
     for i in range(length(user_)):
         if i == length(user_)-1:
             return int(user_[i][0])
+    else:
+        return 1
 
 
 def validatePassword():

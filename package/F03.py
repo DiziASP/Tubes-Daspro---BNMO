@@ -13,7 +13,7 @@ def login(user):
                 if user[i][1] == username_ and user[i][3] == password_:
                     input(
                         f"Yeyy, kamu berhasil login. Selamat Datang {user[i][2]}!")
-                    return True, user[i][1], user[i][3]
+                    return True, user[i][0], user[i][1]
             else:
                 print("Username anda tidak ditemukan atau password anda salah")
         except IndexError:
