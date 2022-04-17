@@ -93,6 +93,9 @@ if __name__ == "__main__":
         elif(user_input.lower() == "kerangajaib"):  # Magic Conch Shell
             kerangajaib()
             input("Press any key to continue...")
+        elif(user_input.lower() == "tictactoe"):  # Magic Conch Shell
+            tictactoe()
+            input("Press any key to continue...")
         elif(not(isLogged)):  # Not Logged in State
             input(
                 "Ara ara~, Sepertinya kamu belum login. Mohon login terlebih dahulu...")
