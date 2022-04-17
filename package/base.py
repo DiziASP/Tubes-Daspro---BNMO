@@ -30,8 +30,8 @@ def addObj(list_par: list, param) -> int:
 
 def conUpper(string: str) -> bool:
     res = False
-    for each in string:
-        if each == each.upper():
+    for i in range(0, length(string)):
+        if string[i] == string[i].upper():
             res = True
             break
     return res
@@ -39,8 +39,8 @@ def conUpper(string: str) -> bool:
 
 def conLower(string: str) -> bool:
     res = False
-    for each in string:
-        if each == each.lower():
+    for i in range(0, length(string)):
+        if string[i] == string[i].lower():
             res = True
             break
     return res
@@ -50,10 +50,11 @@ def conDigit(string: str) -> bool:
     res = False
     num = ['0', '1', '2', '3', '4', '5',
            '6', '7', '8', '9']
-    for each in string:
-        if each in num:
-            res = True
-            break
+    for i in range(0, length(string)):
+        for j in range(0, length(num)):
+            if string[i] == num[j]:
+                res = True
+                break
     return res
 
 
@@ -194,9 +195,9 @@ def printMenu():
 
 
 def getRole(user: list, user_id: str) -> str:
-    for each in user:
-        if each[0] == user_id:
-            return each[4]
+    for i in range(0, length(user)):
+        if user[i][0] == user_id:
+            return user[i][4]
 
 
 def getLastUserId(user_: list) -> int:
@@ -250,18 +251,18 @@ def validateUser(user: list) -> str:
 
 def getGamebyId(game: list, game_id: str) -> list:
     count = 0
-    for item in game:
-        if item[0] == game_id:
-            return item, count
+    for i in range(0, length(game)):
+        if game[i][0] == game_id:
+            return game[i], count
         count += 1
     return
 
 
 def getUserById(user: list, user_id: str) -> list:
     count = 0
-    for item in user:
-        if item[0] == user_id:
-            return item, count
+    for i in range(0, length(user)):
+        if user[i][0] == user_id:
+            return user[i], count
         count += 1
     return
 
@@ -273,8 +274,8 @@ def getValue(user: list, user_id: str) -> str:
 
 
 def isOnLibrary(user: list, game: list, kepemilikan: list) -> bool:
-    for item in kepemilikan:
-        return (item[0] == game[0] and item[1] == user[0])
+    for i in range(0, length(kepemilikan)):
+        return (kepemilikan[i][0] == game[0] and kepemilikan[i][1] == user[0])
 
 
 def write_riwayat(user_: list, game_: list, riwayat: list):
@@ -388,9 +389,9 @@ def print_riwayat(matrix: list):
 
 def ownedByUser(user_id: str, kepemilikan: list) -> list:
     res = []
-    for each in kepemilikan:
-        if each[1] == user_id:
-            res += each[0]
+    for i in range(0, length(kepemilikan)):
+        if kepemilikan[i][1] == user_id:
+            res += kepemilikan[i][0]
     return res
 
 
@@ -404,7 +405,7 @@ def getOwnedGames(arr: list, param: list) -> list:
 
 def getUserHistory(user_id: str, riwayat: list) -> list:
     res = []
-    for each in riwayat:
-        if each[3] == user_id:
-            addObj(res, each)
+    for i in range(0, length(riwayat)):
+        if riwayat[i][3] == user_id:
+            addObj(res, riwayat[i])
     return res
