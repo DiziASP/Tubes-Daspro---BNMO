@@ -19,9 +19,9 @@ def search_my_game(user_id, game, kepemilikan):
     owned_games = getOwnedGames(sortMatrix(game, 0, '+'), game_owned)
     res = []
 
-    for each in owned_games:
-        if each[0] == id or each[1] == name:
-            res += [each]
+    for i in range(0, length(owned_games)):
+        if owned_games[i][0] == id or owned_games[i][1] == name:
+            res += owned_games[i]
 
     if (length(res) != 0):
         printGame(res, 1)
