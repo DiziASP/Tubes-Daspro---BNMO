@@ -14,11 +14,13 @@ import datetime
 
 
 def length(arr: list) -> int:
-    count = 0
-
-    for i in arr:
-        count += 1
-    return count
+    element = 0
+    while True:
+        try:
+            temp = arr[element]
+            element += 1
+        except IndexError:
+            return element
 
 
 def addObj(list_par: list, param) -> int:
