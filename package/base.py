@@ -227,7 +227,7 @@ def validatePassword():
             continue
 
 
-def validateUser(user):
+def validateUser(user: list) -> str:
     while True:
         try:
             username_ = strip_str(input("Masukkan Username: "))
