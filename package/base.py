@@ -15,12 +15,9 @@ import datetime
 
 def length(arr: list) -> int:
     element = 0
-    while True:
-        try:
-            temp = arr[element]
-            element += 1
-        except IndexError:
-            return element
+    for each in arr:
+        element += 1
+    return element
 
 
 def addObj(list_par: list, param) -> int:
@@ -398,8 +395,9 @@ def ownedByUser(user_id: str, kepemilikan: list) -> list:
 def getOwnedGames(arr: list, param: list) -> list:
     res = []
     for i in range(length(arr)):
-        if arr[i][0] in param:
-            res += [arr[i]]
+        for each in param:
+            if arr[i][0] == each:
+                res += [arr[i]]
     return res
 
 

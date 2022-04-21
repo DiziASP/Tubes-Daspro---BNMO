@@ -15,9 +15,7 @@ def list_game_toko(game):
     if length(sorter) == 0:
         idx = 0
         res = removeFirstElmt(game)
-        print(res)
         res = sortMatrix(res, idx, '+')
-        
         printGame(res, 1)
     elif (sorter == 'tahun+'):
         idx = 3

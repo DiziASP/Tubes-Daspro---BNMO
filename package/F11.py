@@ -55,12 +55,32 @@ def search_game_at_store(game):
             addObj(parameter[3], game[i][3])
 
     for i in range(length(game)):
-        if (game[i][0] in parameter[0] and
-            game[i][1] in parameter[1] and
-            game[i][2] in parameter[2] and
-            game[i][3] in parameter[3] and
-                game[i][4] in parameter[4]):
+        bool1 = False
+        bool2 = False
+        bool3 = False
+        bool4 = False
+        bool5 = False
+
+        for each in parameter[0]:
+            if game[i][0] == each:
+                bool1 = True
+        for each in parameter[1]:
+            if game[i][1] == each:
+                bool2 = True
+        for each in parameter[2]:
+            if game[i][2] == each:
+                bool3 = True
+        for each in parameter[3]:
+            if game[i][3] == each:
+                bool4 = True
+        for each in parameter[4]:
+            if game[i][4] == each:
+                bool5 = True
+        if (bool1 and bool2 and bool3 and bool4 and bool5):
             addObj(res, game[i])
+
+        # if (in1 and in2 and in3 and in4 and in5):
+        #     addObj(res, game[i])
 
     if (length(res) > 0):
         printGame(res, 1)
