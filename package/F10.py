@@ -16,13 +16,12 @@ def search_my_game(user_id, game, kepemilikan):
 
     game = removeFirstElmt(game)
     game_owned = ownedByUser(user_id, kepemilikan)
-    owned_games = getOwnedGames(sortMatrix(game, 0, '+'), game_owned)
+    owned_games = getOwnedGames(game, game_owned)
     res = []
 
     for i in range(0, length(owned_games)):
         if owned_games[i][0] == id or owned_games[i][1] == name:
-            res += owned_games[i]
-
+            res += [owned_games[i]]
     if (length(res) != 0):
         printGame(res, 1)
     else:

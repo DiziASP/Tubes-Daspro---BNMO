@@ -27,6 +27,6 @@ def ubah_stok(game):
                 input(
                     f"Stok game {game[idx][1]} berhasil diubah. Stok sekarang adalah {game[idx][5]}")
         return
-    except ValueError:
+    except ValueError and TypeError:
         input("Input anda tidak valid. Kembali ke Menu utama....")
         return
