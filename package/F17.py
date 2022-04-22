@@ -10,9 +10,11 @@ def exit_program(user, game, kepemilikan, riwayat):
     user_input = strip_str(
         input("Apakah anda ingin melakukan penyimpanan file?(y/n) "))
     var = ['y', 'Y', 'n', 'N']
-    while True:
-        if user_input in var:
-            break
+    flag = True
+    while not flag:
+        for each in var:
+            if each == user_input:
+                flag = False
         print("Tolong berikan input yang benar atau nanti BNMO marah >:(")
         print("==============================================")
         user_input = strip_str(

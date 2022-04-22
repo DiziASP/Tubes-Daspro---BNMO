@@ -20,7 +20,10 @@ def tambah_game(game):
         else:
             break
 
-    id = int(game[length(game)-1][0]) + 1
+    # Get ID
+    sorted = removeFirstElmt(game)
+    sorted = sortMatrix(sorted, 0, '+')
+    id = int(sorted[length(sorted)-1][0]) + 1
     game_data = [str(id), str(nama), str(kategori), str(
         tahun_rilis), str(harga), str(stok)]
     addObj(game, game_data)

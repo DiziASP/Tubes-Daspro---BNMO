@@ -281,6 +281,11 @@ def write_riwayat(user_: list, game_: list, riwayat: list):
     addObj(riwayat, res)
 
 
+def write_kepemilikan(kepemilikan, user_id, game_id):
+    res = [str(game_id), str(user_id)]
+    addObj(kepemilikan, res)
+
+
 def sortMatrix(matrix: list, param: int, order: chr) -> list:
     if order == '+':
         for i in range(0, length(matrix)):

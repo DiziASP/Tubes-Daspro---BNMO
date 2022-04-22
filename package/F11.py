@@ -19,7 +19,8 @@ def search_game_at_store(game):
         price = strip_str(input('Masukan Harga Game: '))
         category = strip_str(input('Masukan Kategori Game: '))
         year = strip_str(input('Masukan Tahun rilis: '))
-        game = removeFirstElmt(game)
+
+    game = removeFirstElmt(game)
 
     parameter = [[], [], [], [], []]
     res = []

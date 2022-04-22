@@ -12,10 +12,7 @@ def buy_game(user_id, user, game, kepemilikan, riwayat):
 
     # Validation
     saldo = int(getValue(user, user_id))
-    harga = 0
-    for i in range(length(game)):
-        if game_idx == game[i][0]:
-            harga += int(game[i][4])
+    harga = int(game_[4])
     if(isOnLibrary(user_, game_, kepemilikan)):
         input("Anda sudah memiliki game ini!")
     elif(saldo < harga):
@@ -27,6 +24,7 @@ def buy_game(user_id, user, game, kepemilikan, riwayat):
 
         game[game_idx][5] = str(int(game[game_idx][5])-1)
 
+        write_kepemilikan(kepemilikan, user_idx, game_idx)
         write_riwayat(user[user_idx], game[game_idx], riwayat)
         input(f"Game {game_[1]} telah berhasil dibeli!")
     return

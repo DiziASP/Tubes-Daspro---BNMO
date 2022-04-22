@@ -31,4 +31,4 @@ def Help(role):
         print('10. Exit - Mengakhiri Program')
     else:
         print('1. Login - Untuk login ke akun')
-        print('8. Help -  Untuk melihat list command')
+        print('2. Help -  Untuk melihat list command')
