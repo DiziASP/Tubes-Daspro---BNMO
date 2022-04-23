@@ -1,4 +1,5 @@
 from .base import*
+from .B01 import outputing, encrypt
 
 """
     Register Procedure   
@@ -19,7 +20,8 @@ def register(user):
         name = strip_str(input("Masukkan Nama: "))
         password = validatePassword()
 
-    new_user = [str(id), username, name, password, "user", '0']
+    new_user = [str(id), username, name, outputing(
+        encrypt(password)), "user", '0']
     addObj(user, new_user)
     input("Registrasi sudah berhasil ^_^")
     return

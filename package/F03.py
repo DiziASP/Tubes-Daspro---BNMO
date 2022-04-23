@@ -1,3 +1,4 @@
+from .B01 import outputing, encrypt
 from .base import*
 """
     Login Procedure   
@@ -9,8 +10,11 @@ def login(user):
         try:
             username_ = strip_str(input("Masukkan Username: "))
             password_ = strip_str(input("Masukkan Password: "))
+
+            # Encrypt Pass
+            encrypted = outputing(encrypt(password_))
             for i in range(0, length(user)):
-                if user[i][1] == username_ and user[i][3] == password_:
+                if user[i][1] == username_ and user[i][3] == encrypted:
                     input(
                         f"Yeyy, kamu berhasil login. Selamat Datang {user[i][2]}!")
                     return True, user[i][0], user[i][1]
