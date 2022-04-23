@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
         # Choose Menu
         user_input = strip_str(
-            input("Silahkan pilih menu yang diinginkan: \n"))
+            input("Silahkan pilih menu yang diinginkan: \n>>>"))
         if (user_input.lower() == "register" and isLogged):  # Register
             if(role == 'admin'):
                 register(user)

@@ -217,7 +217,7 @@ def validatePassword():
                 """)
             password_ = strip_str(input("Masukkan Password: "))
             if not((conUpper(password_) or conLower(password_))
-                   and length(password_) > 8
+                   and length(password_) > 7
                     and conDigit(password_)):
                 print("Password tidak sesuai dengan ketentuan. Silahkan coba kembali!")
             else:

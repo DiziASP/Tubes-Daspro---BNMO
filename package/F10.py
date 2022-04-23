@@ -7,12 +7,12 @@ from .base import*
 
 def search_my_game(user_id, game, kepemilikan):
     id = strip_str(input('Masukan ID Game: '))
-    name = strip_str(input('Masukan Nama Game: '))
+    tahun_rilis = strip_str(input('Masukan Tahun Rilis Game: '))
 
-    while id == '' and name == '':
+    while id == '' and tahun_rilis == '':
         input("Parameter tidak boleh kosong. Silahkan isi minimal 1 parameter untuk menjalankan operasi ini")
         id = strip_str(input('Masukan ID Game: '))
-        name = strip_str(input('Masukan Nama Game: '))
+        tahun_rilis = strip_str(input('Masukan Nama Game: '))
 
     game = removeFirstElmt(game)
     game_owned = ownedByUser(user_id, kepemilikan)
@@ -20,10 +20,10 @@ def search_my_game(user_id, game, kepemilikan):
     res = []
 
     for i in range(0, length(owned_games)):
-        if owned_games[i][0] == id or owned_games[i][1] == name:
+        if owned_games[i][0] == id or owned_games[i][3] == tahun_rilis:
             res += [owned_games[i]]
     if (length(res) != 0):
-        printGame(res, 1)
+        printGame(res, 2)
     else:
         print("Tidak ada game yang memenuhi kriteria")
     input("Press any key to continue...")

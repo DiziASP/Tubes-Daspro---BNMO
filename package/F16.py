@@ -9,6 +9,9 @@ def save(user, game, kepemilikan, riwayat):
     while True:
         try:
             folder = strip_str(input("Masukkan nama folder penyimpanan: "))
+            while folder == '':
+                print("Input anda tidak valid. Silahkan ulangi kembali ya ges ya!")
+                folder = strip_str(input("Masukkan nama folder penyimpanan: "))
             create_folder(folder)
             write_csv(folder, user, "user")
             write_csv(folder, game, "game")
