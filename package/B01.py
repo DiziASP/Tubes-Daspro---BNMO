@@ -1,34 +1,55 @@
 from .base import*
 
 """
-    Encryption Procedure using Affine Cypher Algorithm
-    MASIH ERROR COK
+    Encryption Procedure using Homemade Cypher Algorithm
 """
 
-a = 7
-b = 3
+lowerbound, upperbound = 32, 124
 
 
-def inverseModulo(a, m):
-    for i in range(1, m):
-        if((a % m)*(i % m) % m == 1):
-            return i
-    else:
-        return -1
+def encrypt(x):
+    daftar_ord = []
+    dev = 7
+    for i in x:
+        daftar_ord += [ord(i)]
+    for j in range(len(daftar_ord)):
+        check = 0
+        check = daftar_ord[j] + dev
+        if check != 59:
+            if lowerbound <= check <= upperbound:
+                pass
+            else:
+                check -= upperbound - lowerbound + 1
+            daftar_ord[j] = check
+        else:
+            daftar_ord[j] = 126
+        dev += 1
+
+    return daftar_ord
 
 
-def encrypt(plaintext):
-    res = ""
-    for each in plaintext:
-        tmp = (a*ord(each) + b) % 26
-        res += chr(tmp)
-    return res
+def decrypt(x):
+    daftar_ord = []
+    dev = 7
+    for i in x:
+        daftar_ord += [ord(i)]
+    for j in range(len(daftar_ord)):
+        check = 0
+        check = daftar_ord[j] - dev
+        if check != 119:
+            if lowerbound <= check <= upperbound:
+                pass
+            else:
+                check += upperbound - lowerbound + 1
+            daftar_ord[j] = check
+        else:
+            daftar_ord[j] = 59 - dev
+        dev += 1
+    return daftar_ord
 
 
-def decrypt(cyphertext):
-    inv_a = inverseModulo(a, 26)
-    res = ""
-    for each in cyphertext:
-        tmp = inv_a*(ord(each) - b) % 26
-        res += chr(tmp)
-    return res
+def outputing(x):
+    encrypted = ""
+    for i in x:
+        encrypted += chr(i)
+    return encrypted
