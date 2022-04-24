@@ -5,7 +5,7 @@
 
 def Help(role):
     print('====================Need Help?====================')
-    if role == 'admin':
+    if role == 'admin':  # If the user is admin
         print('1. Login - Untuk login ke akun')
         print('2. Register - Untuk mendaftarkan akun')
         print('3. Tambah Game - Untuk menambah game yang dijual oleh toko')
@@ -18,7 +18,7 @@ def Help(role):
         print('10. Help -  Untuk melihat list command')
         print('11. Save - Menyimpan Data')
         print('12. Exit - Mengakhiri Program')
-    elif role == "user":
+    elif role == "user":  # if the user is an user
         print('1. Login - Untuk login ke akun')
         print('2. List Game Toko - Untuk melihat list game yang dijual toko')
         print('3. Beli Game - Untuk membeli game di Toko')
@@ -29,6 +29,6 @@ def Help(role):
         print('8. Help -  Untuk melihat list command')
         print('9. Save - Menyimpan Data')
         print('10. Exit - Mengakhiri Program')
-    else:
+    else:  # If the user is not logged in or a guest
         print('1. Login - Untuk login ke akun')
         print('2. Help -  Untuk melihat list command')

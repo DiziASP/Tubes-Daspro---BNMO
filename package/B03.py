@@ -6,6 +6,9 @@ from .base import*
 
 
 def filled(board: list) -> bool:
+    """
+        check if board is filled or not
+    """
     for i in range(0, length(board)):
         for j in range(0, length(board[i])):
             if board[i][j] != "":
@@ -14,6 +17,9 @@ def filled(board: list) -> bool:
 
 
 def checkboard(board: list, X: int, Y: int, turn: str) -> bool:
+    """
+        Validate the board 
+    """
     if board[X][Y] == "X" and turn == "O":
         print("Kolomnya udah ada yang punya mas/mbak e :(")
         return False
@@ -28,6 +34,10 @@ def checkboard(board: list, X: int, Y: int, turn: str) -> bool:
 
 
 def check(board: list, player: chr) -> bool:
+    """
+        check winning state 
+    """
+
     if filled(board):
         print("It's a tieeeeeeee!!!!!!")
         return True
@@ -60,6 +70,9 @@ def check(board: list, player: chr) -> bool:
 
 
 def printBoard(board: list):
+    """
+        Print the board 
+    """
     print("1 2 3")
     for i in range(0, length(board)):
         for j in range(0, length(board[i])):
@@ -71,6 +84,9 @@ def printBoard(board: list):
 
 
 def modBoard(board: list, X: int, Y: int, turn: chr):
+    """
+        Modify the board 
+    """
     board[X][Y] = turn
     return board
 
@@ -81,31 +97,34 @@ def tictactoe():
     board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
     won = False
     while won != True:
-        os.system("cls")
+        os.system("cls")  # Clear console
         print(f"Player {turn} turn!")
-        printBoard(board)
+        printBoard(board)  # Print Initial board
         while True:
             try:
-                X = int(input('X-Axis: '))-1
-                Y = int(input('Y-Axis: '))-1
-                if (X < 0 or X > 2) or (Y < 0 or Y > 2):
+                X = int(input('X-Axis: '))-1  # X Axis
+                Y = int(input('Y-Axis: '))-1  # Y Axis
+
+                if (X < 0 or X > 2) or (Y < 0 or Y > 2):  # If the input is out of bounds
                     print("Inputnya yang benar ya sayang ya")
                     continue
+                # Check if the board selected is empty or not
                 if checkboard(board, X, Y, turn) == False:
                     continue
                 else:
                     break
             except ValueError:
+                # If the input is not integer
                 print("Inputnya yang benar ya sayang ya")
                 continue
 
-        board = modBoard(board, X, Y, turn)
-        printBoard(board)
+        board = modBoard(board, X, Y, turn)  # Modify board
+        printBoard(board)  # Print Current board
         won = check(board, turn)  # Check if there is a winner
-        if turn == 'X':
+        if turn == 'X':  # Swap turns
             turn = 'O'
         elif turn == 'O':
             turn = 'X'
-        if won == True:
+        if won == True:  # If there is a winner, exit the game
             break
         input("Lanjut...")

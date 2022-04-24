@@ -8,6 +8,7 @@ from .base import*
 def ubah_game(game):
     while True:
         try:
+            # Validate Input
             id = strip_str(input("Masukkan ID game: "))
             nama = strip_str(input("Masukkan nama game: "))
             kategori = strip_str(input("Masukkan kategori: "))
@@ -21,6 +22,7 @@ def ubah_game(game):
                 input("Tidak ada game yang diubah")
                 return
 
+            # Change attributes of game by each input
             for i in range(0, length(game)):
                 if game[i][0] == id:
                     if length(nama) > 0:
