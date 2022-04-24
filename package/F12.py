@@ -16,7 +16,7 @@ def topup(user):
             for i in range(0, length(user)):
                 if user[i][1] == username:  # Match found
                     if int(user[i][5]) + saldo < 0:  # If saldo become zero
-                        print("Masukkan tidak valid")
+                        input("Masukkan tidak valid")
                         return
                     else:
                         user[i][5] = str(int(user[i][5]) + saldo)  # Add Saldo

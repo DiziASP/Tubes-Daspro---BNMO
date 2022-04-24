@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
         elif(user_input.lower() == "help"):  # Help
             if isLogged == False:
-                Help('user')
+                Help('')
             elif role == 'admin':
                 Help('admin')
             else:

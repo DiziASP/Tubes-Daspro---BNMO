@@ -111,12 +111,11 @@ def LCG():
 """
 
 
-def argParser():
+def argParser() -> str:
     parser = argparse.ArgumentParser(description='argument')
-    parser.add_argument('NamaFolder', type=str,
-                        help='Folder Name Harus Diisi!')
+    parser.add_argument('foldername', type=str)
     args = parser.parse_args()
-    folder = args.NamaFolder
+    folder = args.foldername
     return folder
 
 
